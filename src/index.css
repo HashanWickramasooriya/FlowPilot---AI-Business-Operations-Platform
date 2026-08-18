@@ -1,0 +1,124 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --color-canvas: #faf9f7;
+  --color-surface: #ffffff;
+  --color-surface-muted: #f4f3f1;
+  --color-border: #e7e5e1;
+  --color-border-strong: #d8d5cf;
+  --color-ink: #1c1b19;
+  --color-ink-muted: #58564f;
+  --color-ink-faint: #8a877e;
+
+  --color-navy: #17233b;
+  --color-navy-light: #223256;
+
+  --color-brand: #2f6f5e;
+  --color-brand-light: #e7f2ee;
+  --color-brand-dark: #234f42;
+
+  --color-success: #2f8f5b;
+  --color-success-light: #e6f6ec;
+  --color-warning: #b7791f;
+  --color-warning-light: #fbf1de;
+  --color-danger: #c1443b;
+  --color-danger-light: #fbeae8;
+
+  --shadow-card: 0 1px 2px rgba(28,27,25,0.04), 0 1px 1px rgba(28,27,25,0.03);
+  --shadow-card-hover: 0 6px 20px rgba(28,27,25,0.08), 0 2px 6px rgba(28,27,25,0.05);
+  --shadow-popover: 0 12px 32px rgba(28,27,25,0.14), 0 4px 10px rgba(28,27,25,0.06);
+}
+
+:root.dark {
+  --color-canvas: #14161a;
+  --color-surface: #1b1e24;
+  --color-surface-muted: #20232a;
+  --color-border: #2b2f38;
+  --color-border-strong: #383d48;
+  --color-ink: #f2f1ee;
+  --color-ink-muted: #b3b0a8;
+  --color-ink-faint: #78766f;
+
+  --color-navy: #0f1524;
+  --color-navy-light: #17233b;
+
+  --color-brand: #4fa688;
+  --color-brand-light: #1c2b26;
+  --color-brand-dark: #7fc4ab;
+
+  --color-success: #4caf7c;
+  --color-success-light: #16261c;
+  --color-warning: #d9a441;
+  --color-warning-light: #2a2214;
+  --color-danger: #e0685f;
+  --color-danger-light: #2c1917;
+
+  --shadow-card: 0 1px 2px rgba(0,0,0,0.3), 0 1px 1px rgba(0,0,0,0.2);
+  --shadow-card-hover: 0 6px 20px rgba(0,0,0,0.4), 0 2px 6px rgba(0,0,0,0.3);
+  --shadow-popover: 0 12px 32px rgba(0,0,0,0.5), 0 4px 10px rgba(0,0,0,0.3);
+}
+
+* {
+  border-color: var(--color-border);
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--color-canvas);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::selection {
+  background-color: var(--color-brand-light);
+  color: var(--color-brand-dark);
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background-color: var(--color-border-strong);
+  border-radius: 999px;
+}
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.97); }
+  to { opacity: 1; transform: scale(1); }
+}
+.animate-fade-in { animation: fade-in 0.2s ease-out; }
+.animate-slide-up { animation: slide-up 0.28s cubic-bezier(0.16, 1, 0.3, 1); }
+.animate-scale-in { animation: scale-in 0.16s cubic-bezier(0.16, 1, 0.3, 1); }
+
+.focus-ring {
+  outline: none;
+}
+.focus-ring:focus-visible {
+  outline: 2px solid var(--color-brand);
+  outline-offset: 2px;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
